@@ -629,7 +629,7 @@ document.getElementById('domainsTableCount').textContent = `${DOMAINS.length} ci
 (function(){
   const SUPABASE_URL = 'https://rcrpcdorpyexpqvjmesu.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_B-pCYNN_GPP6Ew_27ChI3w_OJas9-Vq';
-  const endpoint = `${SUPABASE_URL}/rest/v1/ai_search_snapshots?select=*&order=snapshot_date.asc`;
+  const endpoint = `${SUPABASE_URL}/rest/v1/babybuddha_ai_search_snapshots?select=*&order=snapshot_date.asc`;
 
   fetch(endpoint, { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } })
     .then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
