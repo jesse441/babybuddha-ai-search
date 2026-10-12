@@ -147,6 +147,10 @@ section.block.brand-rep .section-head p { color:#AFC0CC; }
 .status-no_data { background:#EDEBD9; color:var(--slate); }
 .theme-status.status-cited { background:rgba(77,184,89,.16); color:var(--green-dark); }
 .theme-status.status-partial { background:rgba(243,181,63,.18); color:#8a6d1d; }
+.theme-status.status-mentioned { background:rgba(29,78,216,.13); color:#1d4ed8; }
+.theme-breakdown { margin-top:10px; padding-top:10px; border-top:1px solid var(--line); font-size:12.5px; color:var(--slate); line-height:1.5; }
+.theme-breakdown b { color:var(--ink); }
+.theme-breakdown .bb-stat { color:var(--green-dark); font-weight:700; }
 .theme-closest { margin-top:12px; font-size:13.5px; color:var(--ink); }
 .theme-closest b { color:var(--blue); }
 .theme-similar { margin-top:6px; font-size:12.5px; color:var(--slate); }
@@ -461,112 +465,125 @@ section.block.roadmap-beige { background:var(--beige); }
     <div class="section-head">
       <div class="kicker">Client Priority</div>
       <h2>Top Prompts Requested by BabyBuddha</h2>
-      <p>The 13 prompt themes BabyBuddha asked us to track directly, matched against the closest real tracked AI Search prompt and citation status for each.</p>
+      <p>The 13 prompt themes BabyBuddha asked us to track directly. Each is matched against the closest real tracked AI Search prompt and marked <b>Cited</b> (BabyBuddha owns the exact-match AI answer), <b>Mentioned</b> (BabyBuddha is cited for a closely related variant of the question, just not this exact wording), <b>Partially Covered</b> (no exact or near-variant citation yet, but BabyBuddha has real, tracked citation volume somewhere in the broader topic this theme belongs to), or <b>No tracked citation</b> (genuinely open query space). Every card also shows the customer (BabyBuddha) vs. competitor citation split across that theme's full topic cluster, not just the one closest-matched prompt.</p>
     </div>
     <div class="theme-grid"><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;Which is the best breast pump?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;which is the best breast pump&rdquo;</b> &mdash; 10/mo, currently cited to <b>eufy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; eufy holds it instead.</div>
+      <span class="theme-status status-mentioned">Mentioned</span>
+      <div class="theme-closest">Closest exact-match prompt: <b>&ldquo;which is the best breast pump&rdquo;</b> &mdash; 10/mo, currently cited to <b>eufy</b>. BabyBuddha is cited for the closely related query <b>&ldquo;best breast pump spectra&rdquo;</b> (320/mo).</div>
+      <div class="theme-note">Not the exact theme wording, but BabyBuddha is already cited for a near-variant of this question &mdash; a related, trackable win worth watching for the exact phrasing.</div>
+      <div class="theme-breakdown">Within <b>Pump Reviews &amp; Buying Guides</b> (194 tracked prompts), BabyBuddha appears in <span class="bb-stat">16 (8%)</span> &mdash; <b>eufy</b> leads with 68 (35%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;What's the best breast pump?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-no_data">No tracked citation</span>
-      <div class="theme-closest">No matching prompt tracked yet in this data set for any of the 7 brands.</div>
-      <div class="theme-note">Genuinely open query space in this cycle's tracked data.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Pump Reviews &amp; Buying Guides</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Pump Reviews &amp; Buying Guides</b> (194 tracked prompts), BabyBuddha appears in <span class="bb-stat">16 (8%)</span> &mdash; <b>eufy</b> leads with 68 (35%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;What is the best electric breast pump?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;what is the best electric breast pump&rdquo;</b> &mdash; 70/mo, currently cited to <b>Spectra Baby USA</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Spectra Baby USA holds it instead.</div>
+      <span class="theme-status status-mentioned">Mentioned</span>
+      <div class="theme-closest">Closest exact-match prompt: <b>&ldquo;what is the best electric breast pump&rdquo;</b> &mdash; 70/mo, currently cited to <b>Spectra Baby USA</b>. BabyBuddha is cited for the closely related query <b>&ldquo;best wearable electric breast pumps&rdquo;</b> (30/mo).</div>
+      <div class="theme-note">Not the exact theme wording, but BabyBuddha is already cited for a near-variant of this question &mdash; a related, trackable win worth watching for the exact phrasing.</div>
+      <div class="theme-breakdown">Within <b>Primary / Hospital-Grade Pumps</b> (165 tracked prompts), BabyBuddha appears in <span class="bb-stat">9 (5%)</span> &mdash; <b>eufy</b> leads with 49 (30%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;How to get free breast pump from insurance?&rdquo;</div>
         <div class="theme-type">Insurance</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;how to get a free breast pump from insurance&rdquo;</b> &mdash; 210/mo, currently cited to <b>Zomee & eufy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Zomee & eufy holds it instead.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording (closest tracked prompt currently cited to <b>Zomee & eufy</b>) &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Insurance, Medicaid &amp; Cost</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Insurance, Medicaid &amp; Cost</b> (803 tracked prompts), BabyBuddha appears in <span class="bb-stat">27 (3%)</span> &mdash; <b>Momcozy</b> leads with 328 (41%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;How to even out breast milk supply?&rdquo;</div>
         <div class="theme-type">Milk Supply</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;how to even out milk supply in both breasts&rdquo;</b> &mdash; 10/mo, currently cited to <b>Momcozy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Momcozy holds it instead.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording (closest tracked prompt currently cited to <b>Momcozy</b>) &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Milk Supply &amp; Lactation</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Milk Supply &amp; Lactation</b> (1,082 tracked prompts), BabyBuddha appears in <span class="bb-stat">46 (4%)</span> &mdash; <b>Momcozy</b> leads with 657 (61%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;How to clean breast pump parts on the go?&rdquo;</div>
         <div class="theme-type">Parts &amp; Maintenance</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;how to clean a breast pump&rdquo;</b> &mdash; 390/mo, currently cited to <b>Lansinoh</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Lansinoh holds it instead.</div>
+      <span class="theme-status status-mentioned">Mentioned</span>
+      <div class="theme-closest">Closest exact-match prompt: <b>&ldquo;how to clean a breast pump&rdquo;</b> &mdash; 390/mo, currently cited to <b>Lansinoh</b>. BabyBuddha is cited for the closely related query <b>&ldquo;mold in breast pump parts&rdquo;</b> (260/mo).</div>
+      <div class="theme-note">Not the exact theme wording, but BabyBuddha is already cited for a near-variant of this question &mdash; a related, trackable win worth watching for the exact phrasing.</div>
+      <div class="theme-breakdown">Within <b>Pump Troubleshooting &amp; Maintenance</b> (163 tracked prompts), BabyBuddha appears in <span class="bb-stat">8 (5%)</span> &mdash; <b>Lansinoh</b> leads with 99 (61%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;How to buy breast pump with insurance?&rdquo;</div>
         <div class="theme-type">Insurance</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;how to get breast pump with insurance&rdquo;</b> &mdash; 260/mo, currently cited to <b>eufy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; eufy holds it instead.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording (closest tracked prompt currently cited to <b>eufy</b>) &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Insurance, Medicaid &amp; Cost</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Insurance, Medicaid &amp; Cost</b> (803 tracked prompts), BabyBuddha appears in <span class="bb-stat">27 (3%)</span> &mdash; <b>Momcozy</b> leads with 328 (41%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;Which/What is the best primary pump?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;primary pump&rdquo;</b> &mdash; 140/mo, currently cited to <b>Spectra Baby USA</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Spectra Baby USA holds it instead.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording (closest tracked prompt currently cited to <b>Spectra Baby USA</b>) &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Primary / Hospital-Grade Pumps</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Primary / Hospital-Grade Pumps</b> (165 tracked prompts), BabyBuddha appears in <span class="bb-stat">9 (5%)</span> &mdash; <b>eufy</b> leads with 49 (30%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;Which/What is the best portable pump?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;the best portable breast pump&rdquo;</b> &mdash; 70/mo, currently cited to <b>Momcozy & eufy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Momcozy & eufy holds it instead.</div>
+      <span class="theme-status status-mentioned">Mentioned</span>
+      <div class="theme-closest">Closest exact-match prompt: <b>&ldquo;the best portable breast pump&rdquo;</b> &mdash; 70/mo, currently cited to <b>Momcozy & eufy</b>. BabyBuddha is cited for the closely related query <b>&ldquo;breast pump portable&rdquo;</b> (2400/mo).</div>
+      <div class="theme-note">Not the exact theme wording, but BabyBuddha is already cited for a near-variant of this question &mdash; a related, trackable win worth watching for the exact phrasing.</div>
+      <div class="theme-breakdown">Within <b>Portable &amp; Travel Pumps</b> (205 tracked prompts), BabyBuddha appears in <span class="bb-stat">10 (5%)</span> &mdash; <b>Momcozy</b> leads with 112 (55%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;Which/What is the best wearable pump?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;best wearable pump&rdquo;</b> &mdash; 0/mo, currently cited to <b>Momcozy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Momcozy holds it instead.</div>
+      <span class="theme-status status-mentioned">Mentioned</span>
+      <div class="theme-closest">Closest exact-match prompt: <b>&ldquo;best wearable pump&rdquo;</b> &mdash; 0/mo, currently cited to <b>Momcozy</b>. BabyBuddha is cited for the closely related query <b>&ldquo;best wearable pumps for large breasts&rdquo;</b> (210/mo).</div>
+      <div class="theme-note">Not the exact theme wording, but BabyBuddha is already cited for a near-variant of this question &mdash; a related, trackable win worth watching for the exact phrasing.</div>
+      <div class="theme-breakdown">Within <b>Wearable / In-Bra Pumps</b> (145 tracked prompts), BabyBuddha appears in <span class="bb-stat">3 (2%)</span> &mdash; <b>eufy</b> leads with 49 (34%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;Is there a primary pump that is also portable?&rdquo;</div>
         <div class="theme-type">Buying Guide</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
+      <span class="theme-status status-mentioned">Mentioned</span>
       <div class="theme-closest">Closest tracked prompt: <b>&ldquo;primary pump&rdquo;</b> &mdash; 140/mo, currently cited to <b>Spectra Baby USA</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Spectra Baby USA holds it instead.</div>
+      <div class="theme-note">BabyBuddha shows up for closely related phrasing in this topic, though not yet for this exact query.</div>
+      <div class="theme-breakdown">Within <b>Primary / Hospital-Grade Pumps</b> (165 tracked prompts), BabyBuddha appears in <span class="bb-stat">9 (5%)</span> &mdash; <b>eufy</b> leads with 49 (30%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;How can I establish my milk supply?&rdquo;</div>
         <div class="theme-type">Milk Supply</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;how to re establish milk supply&rdquo;</b> &mdash; 20/mo, currently cited to <b>Momcozy</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; Momcozy holds it instead.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording (closest tracked prompt currently cited to <b>Momcozy</b>) &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Milk Supply &amp; Lactation</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Milk Supply &amp; Lactation</b> (1,082 tracked prompts), BabyBuddha appears in <span class="bb-stat">46 (4%)</span> &mdash; <b>Momcozy</b> leads with 657 (61%).</div>
     </div><div class="theme-card">
       <div class="theme-top">
         <div class="theme-q">&ldquo;How to boost milk supply?&rdquo;</div>
         <div class="theme-type">Milk Supply</div>
       </div>
-      <span class="theme-status status-not_cited">Not cited</span>
-      <div class="theme-closest">Closest tracked prompt: <b>&ldquo;boost milk supply pumping&rdquo;</b> &mdash; 0/mo, currently cited to <b>eufy & Lansinoh</b></div>
-      <div class="theme-note">No tracked AI answer currently cites BabyBuddha for this query &mdash; eufy & Lansinoh holds it instead.</div>
+      <span class="theme-status status-partial">Partially Covered</span>
+      <div class="theme-closest">No exact-match citation for this wording (closest tracked prompt currently cited to <b>eufy & Lansinoh</b>) &mdash; but BabyBuddha has real tracked citations elsewhere in the broader <b>Milk Supply &amp; Lactation</b> topic cluster.</div>
+      <div class="theme-note">Something relatable: BabyBuddha isn't cited for this exact phrasing, but owns real citation volume across the wider topic this theme belongs to &mdash; see the breakdown below.</div>
+      <div class="theme-breakdown">Within <b>Milk Supply &amp; Lactation</b> (1,082 tracked prompts), BabyBuddha appears in <span class="bb-stat">46 (4%)</span> &mdash; <b>Momcozy</b> leads with 657 (61%).</div>
     </div></div>
   </div>
 </section>
