@@ -867,7 +867,7 @@ function renderPromptChanges(rows) {
 
 async function loadTrendSections() {
   try {
-    const snapRows = await fetchSupabase('babybuddha_ai_search_snapshots', 'select=brand,snapshot_date,ai_search_score&order=snapshot_date.asc');
+    const snapRows = await fetchSupabase('babybuddha_ai_search_snapshots', 'select=brand,snapshot_date,ai_search_score&snapshot_date=gte.2026-10-01&order=snapshot_date.asc');
     const snapDates = new Set(snapRows.map(r => r.snapshot_date));
     if (snapDates.size >= 2) {
       document.getElementById('progressLockedCard').classList.add('hidden');
@@ -877,7 +877,7 @@ async function loadTrendSections() {
   } catch (e) { console.warn('Progress Over Time unavailable:', e); }
 
   try {
-    const promptRows = await fetchSupabase('babybuddha_ai_search_prompt_snapshots', 'select=snapshot_date,prompt,topic,volume,babybuddha_cited&order=snapshot_date.asc');
+    const promptRows = await fetchSupabase('babybuddha_ai_search_prompt_snapshots', 'select=snapshot_date,prompt,topic,volume,babybuddha_cited&snapshot_date=gte.2026-10-01&order=snapshot_date.asc');
     const promptDates = new Set(promptRows.map(r => r.snapshot_date));
     if (promptDates.size >= 2) {
       document.getElementById('changesLockedCard').classList.add('hidden');
