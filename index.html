@@ -353,13 +353,13 @@ section.block.roadmap-beige { background:var(--beige); }
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Spotlight</div>
-      <h2>Top Third-Party Citation Source</h2>
-      <p>babybuddhaproducts.com is tracked alongside its own citations &mdash; so here&rsquo;s the highest-volume genuinely <em>third-party</em> domain co-cited alongside it (excluding Medela, which shows up more often but is itself an untracked pump-brand competitor, not a neutral third party).</p>
+      <h2>Top Third-Party Content Partner</h2>
+      <p>babybuddhaproducts.com is tracked alongside its own citations, so here&rsquo;s the highest-volume domain co-cited with it that&rsquo;s a genuine, actionable third-party content partner &mdash; after excluding the 6 tracked competitors, other untracked pump/breastfeeding-device brands (Medela, MomMed, Willow, Ameda, Motif Medical, Lola&amp;Lykke, Hygeia), and generic platforms that aren&rsquo;t realistic partnership targets (YouTube, Reddit, Google, Instagram, Facebook, Amazon). Note: by raw co-citation count alone, YouTube (115) and Reddit (97) actually rank highest &mdash; they&rsquo;re excluded here only because they&rsquo;re platforms, not a publisher or resource site BabyBuddha could realistically build a content relationship with.</p>
     </div>
     <div class="spotlight-card">
       <div>
         <div class="spotlight-domain">milky-mama.com</div>
-        <div class="spotlight-count">Co-cited alongside BabyBuddha 49 times &mdash; BabyBuddha's top neutral citation partner (aeroflowbreastpumps.com is a close second at 46)</div>
+        <div class="spotlight-count">Co-cited alongside BabyBuddha 49 times &mdash; BabyBuddha's top neutral content-partner citation (aeroflowbreastpumps.com is a close second at 46)</div>
       </div>
       <div class="spotlight-note">milky-mama.com is a lactation-content resource site, and aeroflowbreastpumps.com is an insurance/DME breast-pump retailer and resource hub &mdash; AI engines are treating both as trusted reference points alongside BabyBuddha's own site, a distribution/partnership signal rather than a competitor.</div>
     </div>
@@ -456,7 +456,7 @@ section.block.roadmap-beige { background:var(--beige); }
       <h2>What Changed This Month</h2>
       <p>Prompt-level movement since last month's snapshot, tracked live from Supabase.</p>
     </div>
-    <div class="locked-card" id="changesLockedCard"><strong>Loading prompt history&hellip;</strong>Note: this snapshot also moves to a refreshed 13-theme prompt taxonomy, so the comparison below against the prior snapshot reflects that taxonomy change as well as genuine citation movement.</div>
+    <div class="locked-card" id="changesLockedCard"><strong>Not yet available</strong>This cycle's snapshot (Oct 12) is the first one built on the corrected, fully-paginated citation pull, so it's the new reliable baseline for month-over-month tracking. A prompt-level snapshot exists from Aug 19, but it used a different and since-corrected method for flagging whether BabyBuddha was "cited" (it reflected which brand's own keyword search a prompt came from, not whether the AI answer actually cited babybuddhaproducts.com) &mdash; comparing it to this one would produce a misleading before/after number, so it's excluded from this comparison. Check back after next month's refresh for a true like-for-like trend.</div>
     <div id="promptChangesContainer" class="hidden"></div>
   </div>
 </section>
@@ -894,7 +894,7 @@ async function loadTrendSections() {
   } catch (e) { console.warn('Progress Over Time unavailable:', e); }
 
   try {
-    const promptRows = await fetchSupabase('babybuddha_ai_search_prompt_snapshots', 'select=snapshot_date,prompt,topic,volume,babybuddha_cited&order=snapshot_date.asc');
+    const promptRows = await fetchSupabase('babybuddha_ai_search_prompt_snapshots', 'select=snapshot_date,prompt,topic,volume,babybuddha_cited&snapshot_date=gte.2026-10-12&order=snapshot_date.asc');
     const promptDates = new Set(promptRows.map(r => r.snapshot_date));
     if (promptDates.size >= 2) {
       document.getElementById('changesLockedCard').classList.add('hidden');
