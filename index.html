@@ -855,6 +855,29 @@ async function fetchSupabase(table, query) {
   return res.json();
 }
 
+async function fetchAllSupabase(table, query) {
+  const out = [], PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Range-Unit': 'items', 'Range': `${from}-${from + PAGE - 1}` }
+    });
+    if (!res.ok) throw new Error(`Snapshot fetch failed: ${table} (${res.status})`);
+    const part = await res.json();
+    out.push(...part);
+    if (part.length < PAGE) break;
+  }
+  return out;
+}
+
+async function countSupabase(table, filter) {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=prompt&${filter}`, {
+    method: 'HEAD',
+    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'count=exact', 'Range-Unit': 'items', 'Range': '0-0' }
+  });
+  const m = (res.headers.get('Content-Range') || '').match(/\/(\d+)$/);
+  return m ? parseInt(m[1], 10) : null;
+}
+
 function fmtMonth(dateStr) {
   const d = new Date(dateStr + 'T00:00:00Z');
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
@@ -933,7 +956,7 @@ function renderPromptChanges(rows) {
     <div class="changes-summary">
       <div class="changes-stat cs-gain"><div class="cs-num">+${gained.length}</div><div class="cs-label">Prompts newly cited to BabyBuddha since ${fmtMonth(prevDate)}</div></div>
       <div class="changes-stat cs-loss"><div class="cs-num">&minus;${lost.length}</div><div class="cs-label">Prompts that dropped BabyBuddha's citation since ${fmtMonth(prevDate)}</div></div>
-      <div class="changes-stat"><div class="cs-num">${curMap.size.toLocaleString()}</div><div class="cs-label">Total tracked prompts, ${fmtMonth(curDate)} snapshot</div></div>
+      <div class="changes-stat"><div class="cs-num">${(window.__curTotal || curMap.size).toLocaleString()}</div><div class="cs-label">Total tracked prompts, ${fmtMonth(curDate)} snapshot</div></div>
     </div>
     <div class="changes-cols">
       <div class="changes-col gain"><h4>Newly Cited This Month</h4>${gainedHtml}</div>
@@ -953,7 +976,9 @@ async function loadTrendSections() {
   } catch (e) { console.warn('Progress Over Time unavailable:', e); }
 
   try {
-    const promptRows = await fetchSupabase('babybuddha_ai_search_prompt_snapshots', 'select=snapshot_date,prompt,topic,volume,babybuddha_cited&snapshot_date=gte.2026-10-23&order=snapshot_date.asc');
+    const promptRows = await fetchAllSupabase('babybuddha_ai_search_prompt_snapshots', 'select=snapshot_date,prompt,topic,volume,babybuddha_cited&babybuddha_cited=eq.true&snapshot_date=gte.2026-10-23&order=snapshot_date.asc,prompt.asc');
+    const lastDate = [...new Set(promptRows.map(r => r.snapshot_date))].sort().pop();
+    if (lastDate) window.__curTotal = await countSupabase('babybuddha_ai_search_prompt_snapshots', 'snapshot_date=eq.' + lastDate);
     const promptDates = new Set(promptRows.map(r => r.snapshot_date));
     if (promptDates.size >= 2) {
       document.getElementById('changesLockedCard').classList.add('hidden');
